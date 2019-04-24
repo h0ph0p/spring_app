@@ -51,6 +51,7 @@ public class daoCustomers {
     public List<CustomersEntity> findAll() {
         List<CustomersEntity> users = (List<CustomersEntity>)  factory.openSession().createQuery("From CustomersEntity").list();
         return users;
+        
     }
 
 }
