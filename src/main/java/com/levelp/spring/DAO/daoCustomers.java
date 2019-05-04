@@ -7,7 +7,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
-public class daoCustomers {
+public class daoCustomers implements interCustomers{
+
 
     @Autowired
     SessionFactory factory;
@@ -40,18 +41,16 @@ public class daoCustomers {
         session.close();
     }
 
-//    public daoTotalOrders findOrderById(int customerid) {
-//        return factory.openSession().get(daoTotalOrders.class, customerid);
-//    }
-
-    // откоментировать!!!!!!!!!!!!
+    public daoTotalOrders findOrderById(int customerid) {
+        return factory.openSession().get(daoTotalOrders.class, customerid);
+    }
 
 
 
     public List<CustomersEntity> findAll() {
         List<CustomersEntity> users = (List<CustomersEntity>)  factory.openSession().createQuery("From CustomersEntity").list();
         return users;
-        
+
     }
 
 }

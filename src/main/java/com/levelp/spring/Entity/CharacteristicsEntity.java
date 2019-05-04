@@ -14,7 +14,7 @@ public class CharacteristicsEntity {
     private String characteristic4;
     private String characteristic5;
     private String characteristic6;
-    private Collection<GoodsEntity> goodsByTypeId;
+//    private Collection<GoodsEntity> goodsByTypeId;
 
     @Id
     @Column(name = "type_id", nullable = false)
@@ -134,15 +134,15 @@ public class CharacteristicsEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "characteristicsByTypeId")
-    public Collection<GoodsEntity> getGoodsByTypeId() {
-        return goodsByTypeId;
-    }
-
-    public void setGoodsByTypeId(Collection<GoodsEntity> goodsByTypeId) {
-        this.goodsByTypeId = goodsByTypeId;
-    }
-
-    public void setGoodsByTypeId(int i) {
-    }
+//    @OneToMany(mappedBy = "characteristicsByTypeId")
+//    public Collection<GoodsEntity> getGoodsByTypeId() {
+//        return goodsByTypeId;
+//    }
+//
+//    public void setGoodsByTypeId(Collection<GoodsEntity> goodsByTypeId) {
+//        this.goodsByTypeId = goodsByTypeId;
+//    }
+//
+//    public void setGoodsByTypeId(int i) {
+//    }
 }

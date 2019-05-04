@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 
-public class daoGoods {
+public class daoGoods implements interGoods{
 
     @Autowired
     SessionFactory factory;
@@ -43,9 +43,9 @@ public class daoGoods {
         session.close();
     }
 
-//    public OrdersEntity findAutoById(int customerid) {
-//        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(OrdersEntity.class, customerid);
-//    }
+    public OrdersEntity findAutoById(int customerid) {
+        return factory.openSession().get(OrdersEntity.class, customerid);
+    }
 
 
     public List<GoodsEntity> findAll() {

@@ -23,8 +23,8 @@ public class MyController {
     @RequestMapping(value = "/hello")
     public String hello(ModelMap map){
 
-        _dao = new daoCharacteristics();
-        List<CharacteristicsEntity> list = _dao.findAll();
+//        _dao = new daoCharacteristics();
+        List<CharacteristicsEntity> list = service.findAll();
         map.addAttribute("list", list);
         return "index";
     }

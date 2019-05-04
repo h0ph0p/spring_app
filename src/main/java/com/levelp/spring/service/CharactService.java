@@ -14,5 +14,4 @@ public interface CharactService {
     List<CharacteristicsEntity> findAll();
     GoodsEntity findCharacteristicByType(int type_id);
 
-
 }

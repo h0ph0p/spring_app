@@ -1,6 +1,5 @@
 package com.levelp.spring.DAO;
 
-
 import com.levelp.spring.Entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,37 +8,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 
-public class daoOrders implements interOrders{
-
+public class daoProducer implements interProducer{
 
     @Autowired
     SessionFactory factory;
 
-
-    public OrdersEntity findById(int id) {
-        return factory.openSession().get(OrdersEntity.class, id);
+    public ProducerEntity findById(int id) {
+        return factory.openSession().get(ProducerEntity.class, id);
     }
 
-    public void save(OrdersEntity OrdersEntity) {
+    public void save(ProducerEntity ProducerEntity) {
         Session session = factory.openSession();
         Transaction tx1 = session.beginTransaction();
-        session.save(OrdersEntity);
+        session.save(ProducerEntity);
         tx1.commit();
         session.close();
     }
 
-    public void update(OrdersEntity OrdersEntity) {
+    public void update(ProducerEntity ProducerEntity) {
         Session session = factory.openSession();
         Transaction tx1 = session.beginTransaction();
-        session.update(OrdersEntity);
+        session.update(ProducerEntity);
         tx1.commit();
         session.close();
     }
 
-    public void delete(OrdersEntity OrdersEntity) {
+    public void delete(ProducerEntity ProducerEntity) {
         Session session = factory.openSession();
         Transaction tx1 = session.beginTransaction();
-        session.delete(OrdersEntity);
+        session.delete(ProducerEntity);
         tx1.commit();
         session.close();
     }
@@ -48,10 +45,8 @@ public class daoOrders implements interOrders{
         return factory.openSession().get(daoTotalOrders.class, customerid);
     }
 
-    public List<OrdersEntity> findAll() {
-        List<OrdersEntity> users = (List<OrdersEntity>)  factory.openSession().createQuery("From OrdersEntity").list();
+    public List<ProducerEntity> findAll() {
+        List<ProducerEntity> users = (List<ProducerEntity>)  factory.openSession().createQuery("From ProducerEntity").list();
         return users;
     }
 }
-
-

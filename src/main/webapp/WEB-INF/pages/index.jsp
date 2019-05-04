@@ -25,10 +25,10 @@
     --%>
     <c:forEach items="${list}" var="item">
         <tr>
-            <td><c:out value="${item.type_id}"/></td>
-            <td><c:out value="${item.type_name}"/></td>
-            <td><c:out value="${item.characteristic_1}"/></td>
-            <td><c:out value="${item.characteristic_2}"/></td>
+            <td><c:out value="${item.typeId}"/></td>
+            <td><c:out value="${item.typeName}"/></td>
+            <td><c:out value="${item.characteristic1}"/></td>
+            <td><c:out value="${item.characteristic2}"/></td>
         </tr>
     </c:forEach>
 </table>

@@ -1,12 +1,10 @@
 package com.levelp.spring.DAO;
 
-import org.hibernate.query.Query;
 import com.levelp.spring.Entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-//import utils.HibernateSessionFactoryUtil;
 import java.util.List;
 
 
