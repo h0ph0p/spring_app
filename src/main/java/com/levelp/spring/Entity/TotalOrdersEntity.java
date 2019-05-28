@@ -9,12 +9,13 @@ import java.util.Collection;
 public class TotalOrdersEntity {
     private int orderId;
     private Double totalCost;
-    private Timestamp dateOfOrder;
+    private String dateOfOrder;
     private Collection<OrdersEntity> ordersByOrderId;
     private ReceiveTEntity receiveTByReceivingId;
     private CustomersEntity customersByCustomerId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id", nullable = false)
     public int getOrderId() {
         return orderId;
@@ -36,11 +37,11 @@ public class TotalOrdersEntity {
 
     @Basic
     @Column(name = "date_of_order", nullable = true)
-    public Timestamp getDateOfOrder() {
+    public String getDateOfOrder() {
         return dateOfOrder;
     }
 
-    public void setDateOfOrder(Timestamp dateOfOrder) {
+    public void setDateOfOrder(String dateOfOrder) {
         this.dateOfOrder = dateOfOrder;
     }
 

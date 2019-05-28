@@ -1,7 +1,22 @@
-<%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<html>
+<head>
+    <title>корзина</title>
+</head>
 <style>
+    .s1 {
+        color: #FFD201;
+        letter-spacing: 1px;
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+    }
+    .s1:hover {
+        border-bottom: 1px solid #FFD201;
+        border-top: 1px solid #FFD201;
+    }
+
     .img_wrap {
         width: 200px;
         height: 100px;
@@ -9,12 +24,14 @@
         border-style: solid;
     }
 </style>
-<html>
 <body>
+
 <a href="go_to_main_page"><img src="https://www.rateshops.ru/info/images/site/cache/0f/10/0f10d3c01db3fd1aa4ad9ced6a4bad91.png" class="img_wrap" alt="vertical">
 </a>
 
-<h2>Hello, table!</h2>
+<a href="go_to_private_office" class="s1" style="margin-left: 40px">Личный Кабинет</a>
+
+<h4>Таблица заказов:</h4>
 
 <table border="2px">
     <tr>
@@ -23,12 +40,9 @@
         <th>foto</th>
         <th>dimensions</th>
         <th>price</th>
+        <%--<th>options</th>--%>
     </tr>
-    <%--
-    for(Idea item : list ){
-    ...
-    }
-    --%>
+
     <c:forEach items="${list}" var="item">
         <tr>
             <td>${item.id}</td>
@@ -36,9 +50,9 @@
             <td><img src="${item.image}"></td>
             <td><c:out value="${item.dimensions}"/></td>
             <td><c:out value="${item.characteristic1}"/></td>
+            <%--<td><a href="add_to_bin?id=${item.id}" class="c">Добавить в корзину</a></td>--%>
         </tr>
     </c:forEach>
 </table>
-<img src="https://img-fotki.yandex.ru/get/173114/19749220.11/0_da31c_45c53ada_orig.jpg">
 </body>
 </html>

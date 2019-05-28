@@ -11,7 +11,7 @@ public interface interCharact {
     void save(CharacteristicsEntity CharacteristicsEntity);
     void update(CharacteristicsEntity CharacteristicsEntity);
     void delete(CharacteristicsEntity CharacteristicsEntity);
-    List<CharacteristicsEntity> findAll();
+    List<CharacteristicsEntity> findAllCharacteristics();
     GoodsEntity findCharacteristicByType(int type_id);
 
 }

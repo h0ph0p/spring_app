@@ -6,11 +6,12 @@ import java.util.List;
 
 public interface interCustomers {
 
-    CustomersEntity findById(int id);
+    CustomersEntity findCustomersById(int id);
     void save(CustomersEntity CustomersEntity);
     void update(CustomersEntity CustomersEntity);
     void delete(CustomersEntity CustomersEntity);
-    daoTotalOrders findOrderById(int customerid);
-    List<CustomersEntity> findAll();
+//    TotalOrdersEntity findOrderById(int customerid);
+    List<CustomersEntity> findAllCustomers();
+    CustomersEntity findCustomersByLogin(String login);
 
 }

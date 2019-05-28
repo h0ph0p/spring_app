@@ -56,7 +56,7 @@ public class daoCharacteristics implements interCharact {
 
 
 
-    public List<CharacteristicsEntity> findAll() {
+    public List<CharacteristicsEntity> findAllCharacteristics() {
         Session session = factory.openSession();
 //        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
 //        @SuppressWarnings("unchecked")    разобраться!!!!

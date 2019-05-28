@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface interProducer {
 
-    ProducerEntity findById(int id);
+    ProducerEntity findProducerById(int id);
     void save(ProducerEntity ProducerEntity);
     void update(ProducerEntity ProducerEntity);
     void delete(ProducerEntity ProducerEntity);
-//    daoTotalOrders findOrderById(int customerid);
-    List<ProducerEntity> findAll();
+    daoTotalOrders findOrderByСustomerId(int customerid);
+    List<ProducerEntity> findAllProducer();
 
 }

@@ -5,6 +5,7 @@ import com.levelp.spring.Entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class daoOrders implements interOrders{
     SessionFactory factory;
 
 
-    public OrdersEntity findById(int id) {
+    public OrdersEntity findOrderById(int id) {
         return factory.openSession().get(OrdersEntity.class, id);
     }
 
@@ -44,13 +45,27 @@ public class daoOrders implements interOrders{
         session.close();
     }
 
-    public daoTotalOrders findOrderById(int customerid) {
-        return factory.openSession().get(daoTotalOrders.class, customerid);
+    public TotalOrdersEntity findOrderByСustomerId(int customerid) {
+        return factory.openSession().get(TotalOrdersEntity.class, customerid);
     }
 
-    public List<OrdersEntity> findAll() {
+    public List<OrdersEntity> findAllOrders() {
         List<OrdersEntity> users = (List<OrdersEntity>)  factory.openSession().createQuery("From OrdersEntity").list();
         return users;
+    }
+
+//    public List<OrdersEntity> findOrdersByTotalOrder() {
+//        return
+//    }
+
+    public List<OrdersEntity> findOrdersByTotalOrder(int id) {
+        Session session = factory.openSession();
+        Query query = session.createQuery("From OrdersEntity G" +
+                " where G.totalOrdersByOrderId.typeName = :total_id");
+        query.setParameter("total_id", id);
+        List<OrdersEntity> ordersEntities = (List<OrdersEntity>) query.list();
+        session.close();
+        return ordersEntities;
     }
 }
 

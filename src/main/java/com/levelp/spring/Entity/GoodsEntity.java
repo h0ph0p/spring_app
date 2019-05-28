@@ -21,6 +21,7 @@ public class GoodsEntity {
     private ProducerEntity producerByProducerId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -31,7 +32,7 @@ public class GoodsEntity {
     }
 
     @Basic
-    @Column(name = "image", nullable = true, length = 50)
+    @Column(name = "image", nullable = true, length = 150)
     public String getImage() {
         return image;
     }

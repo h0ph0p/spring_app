@@ -1,6 +1,8 @@
 package com.levelp.spring.Entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -14,6 +16,10 @@ public class CustomersEntity {
     private Collection<TotalOrdersEntity> totalOrdersByCustomerId;
 
     @Id
+    @GenericGenerator(name="keygen", strategy = "increment")
+    @GeneratedValue(generator = "keygen")
+//    @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence_generator")
+//    @SequenceGenerator(name="sequence_generator", sequenceName="SEQUENCE1")
     @Column(name = "customer_id", nullable = false)
     public int getCustomerId() {
         return customerId;

@@ -7,11 +7,12 @@ import java.util.List;
 
 public interface interOrders {
 
-    OrdersEntity findById(int id);
+    OrdersEntity findOrderById(int id);
     void save(OrdersEntity OrdersEntity);
     void update(OrdersEntity OrdersEntity);
     void delete(OrdersEntity OrdersEntity);
-    List<OrdersEntity> findAll();
-//    daoTotalOrders findOrderById(int customerid);
+    List<OrdersEntity> findAllOrders();
+    TotalOrdersEntity findOrderByСustomerId(int customerid);
+    List<OrdersEntity> findOrdersByTotalOrder(int id);
 
 }

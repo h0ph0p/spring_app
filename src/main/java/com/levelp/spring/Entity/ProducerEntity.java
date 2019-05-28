@@ -13,6 +13,7 @@ public class ProducerEntity {
     private Collection<GoodsEntity> goodsByProducerId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "producer_id", nullable = false)
     public int getProducerId() {
         return producerId;

@@ -15,7 +15,7 @@ public class daoReceiveT implements interReceiveT{
     SessionFactory factory;
 
 
-    public ReceiveTEntity findById(int id) {
+    public ReceiveTEntity findReceiveTById(int id) {
         return factory.openSession().get(ReceiveTEntity.class, id);
     }
 
@@ -43,11 +43,11 @@ public class daoReceiveT implements interReceiveT{
         session.close();
     }
 
-    public daoTotalOrders findOrderById(int customerid) {
-        return factory.openSession().get(daoTotalOrders.class, customerid);
-    }
+//    public daoTotalOrders findOrderByIкd(int customerid) {
+//        return factory.openSession().get(daoTotalOrders.class, customerid);
+//    }
 
-    public List<ReceiveTEntity> findAll() {
+    public List<ReceiveTEntity> findAllReceiveT() {
         List<ReceiveTEntity> users = (List<ReceiveTEntity>)  factory.openSession().createQuery("From ReceiveTEntity").list();
         return users;
     }

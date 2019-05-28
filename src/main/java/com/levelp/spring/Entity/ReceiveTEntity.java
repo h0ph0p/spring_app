@@ -15,6 +15,7 @@ public class ReceiveTEntity {
     private Collection<TotalOrdersEntity> totalOrdersByReceivingId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "receiving_id", nullable = false)
     public int getReceivingId() {
         return receivingId;

@@ -30,11 +30,25 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.levelp.spring.Entity.CharacteristicsEntity</value>
+                <value>com.levelp.spring.Entity.GoodsEntity</value>
+                <value>com.levelp.spring.Entity.ProducerEntity</value>
+                <value>com.levelp.spring.Entity.CustomersEntity</value>
+                <value>com.levelp.spring.Entity.OrdersEntity</value>
+                <value>com.levelp.spring.Entity.ReceiveTEntity</value>
+                <value>com.levelp.spring.Entity.TotalOrdersEntity</value>
             </list>
         </property>
     </bean>
 
     <bean id="daoCharacteristics" class="com.levelp.spring.DAO.daoCharacteristics"/>
-    <bean id="CharactService" class="com.levelp.spring.service.CharactServImpl"/>
+    <bean id="service" class="com.levelp.spring.service.ServImpl"/>
+    <bean id="daoGoods" class="com.levelp.spring.DAO.daoGoods"/>
+
+    <bean id="daoCustomers" class="com.levelp.spring.DAO.daoCustomers"/>
+    <bean id="daoOrders" class="com.levelp.spring.DAO.daoOrders"/>
+    <bean id="daoProduces" class="com.levelp.spring.DAO.daoProducer"/>
+    <bean id="daoReceiveT" class="com.levelp.spring.DAO.daoReceiveT"/>
+    <bean id="daoTotalOrders" class="com.levelp.spring.DAO.daoTotalOrders"/>
+
 
 </beans>

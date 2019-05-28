@@ -15,7 +15,7 @@ public class daoGoods implements interGoods{
     @Autowired
     SessionFactory factory;
 
-    public GoodsEntity findById(int id) {
+    public GoodsEntity findGoodById(int id) {
         return factory.openSession().get(GoodsEntity.class, id);
     }
 
@@ -43,22 +43,32 @@ public class daoGoods implements interGoods{
         session.close();
     }
 
-    public OrdersEntity findAutoById(int customerid) {
-        return factory.openSession().get(OrdersEntity.class, customerid);
-    }
+//    public OrdersEntity findAutoById(int customerid) {
+//        return factory.openSession().get(OrdersEntity.class, customerid);
+//    }
 
 
-    public List<GoodsEntity> findAll() {
+    public List<GoodsEntity> findAllGoods() {
         Session session = factory.openSession();
         List<GoodsEntity> goodsEntities = (List<GoodsEntity>) session.createQuery("From GoodsEntity").list();
         session.close();
         return goodsEntities;
     }
 
-    public List<GoodsEntity> findGoodsByProducer(ProducerEntity producerEntity) {
+    public List<GoodsEntity> findGoodsByProducer(String producerEntity) {
         Session session = factory.openSession();
         Query query = session.createQuery("From GoodsEntity G" +
-                " where G.producerByProducerId = :producer");
+                " where G.producerByProducerId.producerName = :producer");
+        query.setParameter("producer", producerEntity);
+        List<GoodsEntity> goodsEntities = (List<GoodsEntity>) query.list();
+        session.close();
+        return goodsEntities;
+    }
+
+    public List<GoodsEntity> findGoodsByType(String producerEntity) {
+        Session session = factory.openSession();
+        Query query = session.createQuery("From GoodsEntity G" +
+                " where G.characteristicsByTypeId.typeName = :producer");
         query.setParameter("producer", producerEntity);
         List<GoodsEntity> goodsEntities = (List<GoodsEntity>) query.list();
         session.close();

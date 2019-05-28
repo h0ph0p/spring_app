@@ -13,7 +13,7 @@ public class daoProducer implements interProducer{
     @Autowired
     SessionFactory factory;
 
-    public ProducerEntity findById(int id) {
+    public ProducerEntity findProducerById(int id) {
         return factory.openSession().get(ProducerEntity.class, id);
     }
 
@@ -41,11 +41,11 @@ public class daoProducer implements interProducer{
         session.close();
     }
 
-    public daoTotalOrders findOrderById(int customerid) {
+    public daoTotalOrders findOrderByСustomerId(int customerid) {
         return factory.openSession().get(daoTotalOrders.class, customerid);
     }
 
-    public List<ProducerEntity> findAll() {
+    public List<ProducerEntity> findAllProducer() {
         List<ProducerEntity> users = (List<ProducerEntity>)  factory.openSession().createQuery("From ProducerEntity").list();
         return users;
     }

@@ -7,12 +7,13 @@ import java.util.List;
 
 public interface interGoods {
 
-    GoodsEntity findById(int id);
+    GoodsEntity findGoodById(int id);
     void save(GoodsEntity GoodsEntity);
     void update(GoodsEntity GoodsEntity);
     void delete(GoodsEntity GoodsEntity);
-    OrdersEntity findAutoById(int customerid);
-    List<GoodsEntity> findAll();
-    List<GoodsEntity> findGoodsByProducer(ProducerEntity producerEntity);
+//    OrdersEntity findAutoById(int customerid);
+    List<GoodsEntity> findAllGoods();
+    List<GoodsEntity> findGoodsByProducer(String producerEntity);
+    List<GoodsEntity> findGoodsByType(String producerEntity);
 
 }
