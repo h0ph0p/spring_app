@@ -9,6 +9,7 @@ public class OrdersEntity {
     private int id;
     private Integer quantity;
     private Double cost;
+    private GoodsEntity goodsByOrderId;
     private TotalOrdersEntity totalOrdersByOrderId;
 
     @Id
@@ -72,5 +73,13 @@ public class OrdersEntity {
 
     public void setTotalOrdersByOrderId(TotalOrdersEntity totalOrdersByOrderId) {
         this.totalOrdersByOrderId = totalOrdersByOrderId;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "goods_id", referencedColumnName = "id", nullable = false)
+    public GoodsEntity getGoodsByOrderId() { return goodsByOrderId; }
+
+    public void setGoodsByOrderId(GoodsEntity goodsByOrderId) {
+        this.goodsByOrderId = goodsByOrderId;
     }
 }

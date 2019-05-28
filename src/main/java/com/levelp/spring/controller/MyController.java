@@ -176,6 +176,8 @@ public class MyController {
         TotalOrdersEntity totalOrdersEntity = service.findTotalOrderById(id);
         List<OrdersEntity> list = service.findOrdersByTotalOrder(id);
         ReceiveTEntity receiveTEntity = totalOrdersEntity.getReceiveTByReceivingId();
+        modelAndView.getModelMap().addAttribute("list", list);
+        modelAndView.getModelMap().addAttribute("receiveTEntity", receiveTEntity);
         return modelAndView;
     }
 
