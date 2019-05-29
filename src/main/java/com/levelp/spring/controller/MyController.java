@@ -207,15 +207,23 @@ public class MyController {
         ModelAndView bagModel = new ModelAndView("basket");
         bagModel.getModelMap().addAttribute("list", bag);
         bagModel.getModelMap().addAttribute("CustomersFio", userId);
+        bagModel.getModelMap().addAttribute("newT", new CustomersEntity());
 //        NewCustomer.getModelMap().addAttribute("NewCustomer", new CustomersEntity());
         return bagModel;
     }
-
 
     @RequestMapping(value = "/add_to_bin")
     public ModelAndView add_to_bin(@RequestParam int id) {
         GoodsEntity tovar = service.findGoodById(id);
         bag.add(tovar);
+        return new ModelAndView("redirect:go_to_main_page");
+    }
+
+    @RequestMapping(value = "/make_new_order")
+    public ModelAndView make_new_order() {
+
+//        GoodsEntity tovar = service.findGoodById(id);
+//        bag.add(tovar);
         return new ModelAndView("redirect:go_to_main_page");
     }
 }

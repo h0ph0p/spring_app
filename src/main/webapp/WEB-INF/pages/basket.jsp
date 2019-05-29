@@ -6,6 +6,48 @@
     <title>корзина</title>
 </head>
 <style>
+    #zatemnenie {
+        background: rgba(102, 102, 102, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+    #okno {
+        width: 300px;
+        height: 265px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid #0000cc;
+        border-radius: 10px;
+        color: #0000cc;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: #fff;
+    }
+    #zatemnenie:target {display: block;}
+    .close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+    }
+    .close:hover {background: #e6e6ff;}
+
+
+
+
     .s1 {
         color: #FFD201;
         letter-spacing: 1px;
@@ -52,6 +94,23 @@
 </style>
 <body>
 
+<div id="zatemnenie">
+    <div id="okno">
+
+        <form:form id="formCreate" modelAttribute="newT" method="post" action="new_order">
+            Заполните данные для регистрации:<br>
+            адрес: <form:input path="login" placeholder="адрес" class="c"/><br><br>
+            тип доставки: <form:input path="pasword" placeholder="самовывоз/курьером" class="c"/><br><br>
+            экспрес: <form:input path="fio" placeholder="да/нет" class="c"/><br><br><br>
+            <button type="submit" class="c">Оформить заказ</button>
+        </form:form>
+        <br>
+        <a href="#" class="close">Закрыть окно</a>
+    </div>
+</div>
+
+
+
 <a href="go_to_main_page"><img src="https://www.rateshops.ru/info/images/site/cache/0f/10/0f10d3c01db3fd1aa4ad9ced6a4bad91.png" class="img_wrap" alt="vertical">
 </a>
 
@@ -79,7 +138,7 @@
             <td><img src="${item.image}" class="img_wrap2"></td>
             <td><c:out value="${item.dimensions}"/></td>
             <td><c:out value="${item.characteristic1}"/></td>
-            <td><a href="plus">+</a>1<a href="minus">-</a></td>
+            <td><a href="plus" style="margin: 14px">+</a>1<a href="minus" style="margin-left: 14px">-</a></td>
             <td><a href="information_about_good?id=${item.id}" class="c">Подробнее о товаре</a></td>
         </tr>
     </c:forEach>
@@ -88,6 +147,6 @@
 </html>
 
 <br><br><br>
-<button href="make_new_order"
+<a href="#zatemnenie"
 <c:if test="${CustomersFio == \"-1\"}"> class="disabled" </c:if>
-    >Совершить заказ</button>
+    >Совершить заказ</a>
