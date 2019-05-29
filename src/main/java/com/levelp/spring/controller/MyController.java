@@ -207,7 +207,7 @@ public class MyController {
         ModelAndView bagModel = new ModelAndView("basket");
         bagModel.getModelMap().addAttribute("list", bag);
         bagModel.getModelMap().addAttribute("CustomersFio", userId);
-        bagModel.getModelMap().addAttribute("newT", new CustomersEntity());
+        bagModel.getModelMap().addAttribute("newT", new ReceiveTEntity());
 //        NewCustomer.getModelMap().addAttribute("NewCustomer", new CustomersEntity());
         return bagModel;
     }
@@ -219,8 +219,29 @@ public class MyController {
         return new ModelAndView("redirect:go_to_main_page");
     }
 
-    @RequestMapping(value = "/make_new_order")
-    public ModelAndView make_new_order() {
+    @RequestMapping(value = "/new_order")
+    public ModelAndView new_order(@ModelAttribute ReceiveTEntity receiveTEntity) {
+        ModelAndView modelAndView = new ModelAndView("mainPage");
+        service.save(receiveTEntity);
+//        int receiveId = receiveTEntity.getReceivingId();
+        CustomersEntity customersEntity = service.findCustomersById(userId);
+//        TotalOrdersEntity totalOrdersEntity = null;
+        TotalOrdersEntity totalOrdersEntity = new TotalOrdersEntity();
+        totalOrdersEntity.setDateOfOrder("29.05.19");
+        totalOrdersEntity.setTotalCost(120.0);
+        totalOrdersEntity.setReceiveTByReceivingId(receiveTEntity);
+        totalOrdersEntity.setCustomersByCustomerId(customersEntity);
+        service.save(totalOrdersEntity);
+        for (GoodsEntity item:bag){
+            OrdersEntity ordersEntity = new OrdersEntity();
+            ordersEntity.setCost(10.0);
+            ordersEntity.setQuantity(1);
+            ordersEntity.setGoodsByOrderId(item);
+            ordersEntity.setTotalOrdersByOrderId(totalOrdersEntity);
+            service.save(ordersEntity);
+        }
+        bag = new HashSet<GoodsEntity>();
+
 
 //        GoodsEntity tovar = service.findGoodById(id);
 //        bag.add(tovar);

@@ -99,9 +99,9 @@
 
         <form:form id="formCreate" modelAttribute="newT" method="post" action="new_order">
             Заполните данные для регистрации:<br>
-            адрес: <form:input path="login" placeholder="адрес" class="c"/><br><br>
-            тип доставки: <form:input path="pasword" placeholder="самовывоз/курьером" class="c"/><br><br>
-            экспрес: <form:input path="fio" placeholder="да/нет" class="c"/><br><br><br>
+            адрес: <form:input path="adress" placeholder="адрес" class="c"/><br><br>
+            тип доставки: <form:input path="receivingType" placeholder="самовывоз/курьером" class="c"/><br><br>
+            экспрес: <form:input path="express" placeholder="да/нет" class="c"/><br><br><br>
             <button type="submit" class="c">Оформить заказ</button>
         </form:form>
         <br>
@@ -138,7 +138,8 @@
             <td><img src="${item.image}" class="img_wrap2"></td>
             <td><c:out value="${item.dimensions}"/></td>
             <td><c:out value="${item.characteristic1}"/></td>
-            <td><a href="plus" style="margin: 14px">+</a>1<a href="minus" style="margin-left: 14px">-</a></td>
+            <%--<td><a href="plus" style="margin: 14px">+</a>1<a href="minus" style="margin-left: 14px">-</a></td>--%>
+            <td>1</td>
             <td><a href="information_about_good?id=${item.id}" class="c">Подробнее о товаре</a></td>
         </tr>
     </c:forEach>

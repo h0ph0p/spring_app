@@ -1,5 +1,7 @@
 package com.levelp.spring.Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -15,7 +17,9 @@ public class TotalOrdersEntity {
     private CustomersEntity customersByCustomerId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name="keygen", strategy = "increment")
+    @GeneratedValue(generator = "keygen")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id", nullable = false)
     public int getOrderId() {
         return orderId;
