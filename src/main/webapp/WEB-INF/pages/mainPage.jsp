@@ -36,24 +36,7 @@
             border-style: solid;
         }
 
-        /*.img_wrap img {*/
-            /*width: 100%;*/
-            /*height: 1%;*/
-            /*object-fit: cover;*/
-            /*object-position: 0 0;*/
-        /*}*/
 
-
-        /*.crop{*/
-            /*float:left;*/
-            /*margin:.5em 10px .5em 0;*/
-            /*overflow:hidden; !* this is important *!*/
-            /*border:1px solid #ccc;*/
-        /*}*/
-        /*!* input values to crop the image: top, right, bottom, left *!*/
-        /*.crop img{*/
-            /*margin:-41px -156px -40px -30px;*/
-        /*}*/
 
     </style>
     <meta http-equip="content-type" content="text/html" charset="utf-8">

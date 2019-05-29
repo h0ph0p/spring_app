@@ -111,6 +111,19 @@ public class MyController {
         return serch;
     }
 
+//------------------------------//
+    @RequestMapping(value = "/information_about_good")
+    public ModelAndView information_about_good(@RequestParam int id){
+        ModelAndView modelAndView = new ModelAndView("infoAboutGoods");
+        GoodsEntity goodsEntity = service.findGoodById(id);
+        CharacteristicsEntity characteristicsEntity = goodsEntity.getCharacteristicsByTypeId();
+
+        modelAndView.getModelMap().addAttribute("goodsEntity", goodsEntity);
+        modelAndView.getModelMap().addAttribute("characteristicsEntity", characteristicsEntity);
+
+        return modelAndView;
+    }
+
 
 
 //    --------------------- функции личного кабинета
@@ -167,6 +180,7 @@ public class MyController {
     @RequestMapping(value = "/logout")
     public ModelAndView logout(){
         userId = -1;
+        bag = new HashSet<GoodsEntity>();
         return new ModelAndView("redirect:go_to_private_office");
     }
 
@@ -181,12 +195,18 @@ public class MyController {
         return modelAndView;
     }
 
+//    @RequestMapping(value = "/back_to_private_office")
+//    public ModelAndView back_to_private_office() {
+//        return new ModelAndView("redirect:information_about_order");
+//    }
+
 
 // -----------------------------функции для корзины
     @RequestMapping(value = "/go_to_basket")
     public ModelAndView go_to_basket() {
         ModelAndView bagModel = new ModelAndView("basket");
         bagModel.getModelMap().addAttribute("list", bag);
+        bagModel.getModelMap().addAttribute("CustomersFio", userId);
 //        NewCustomer.getModelMap().addAttribute("NewCustomer", new CustomersEntity());
         return bagModel;
     }

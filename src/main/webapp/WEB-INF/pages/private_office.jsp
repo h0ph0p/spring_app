@@ -168,7 +168,6 @@
         <th>№ заказа</th>
         <th>стоймость заказа</th>
         <th>дата заказа</th>
-        <th>подробнее</th>
     </tr>
     <%--
     for(Idea item : list ){
@@ -180,7 +179,6 @@
             <td>${item.orderId}</td>
             <td><c:out value="${item.totalCost}"/></td>
             <td><c:out value="${item.dateOfOrder}"/></td>
-            <td><c:out value="кнопки"/></td>
             <td><a href="information_about_order?id=${item.orderId}" class="c">информация о заказе</a></td>
 
         </tr>

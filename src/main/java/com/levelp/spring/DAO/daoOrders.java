@@ -61,7 +61,7 @@ public class daoOrders implements interOrders{
     public List<OrdersEntity> findOrdersByTotalOrder(int id) {
         Session session = factory.openSession();
         Query query = session.createQuery("From OrdersEntity G" +
-                " where G.totalOrdersByOrderId.typeName = :total_id");
+                " where G.totalOrdersByOrderId.orderId = :total_id");
         query.setParameter("total_id", id);
         List<OrdersEntity> ordersEntities = (List<OrdersEntity>) query.list();
         session.close();

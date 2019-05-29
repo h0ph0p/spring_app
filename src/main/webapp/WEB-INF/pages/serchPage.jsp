@@ -31,6 +31,19 @@
         border-style: solid;
     }
 
+    .c {
+        border: 1px solid #333; /* Рамка */
+        display: inline-block;
+        padding: 5px 15px; /* Поля */
+        text-decoration: none; /* Убираем подчёркивание */
+        color: #000; /* Цвет текста */
+    }
+    .c:hover {
+        box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Тень */
+        background: linear-gradient(to bottom, #060606, #e99f89); /* Градиент */
+        color: #fffcfe;
+    }
+
 </style>
 <body>
 
@@ -47,22 +60,26 @@
 
 <table border="2px">
     <tr>
-        <th>type_id</th>
-        <th>producer_id</th>
-        <th>foto</th>
-        <th>dimensions</th>
-        <th>price</th>
-        <th>options</th>
+        <th>id товара</th>
+        <th>тип товара</th>
+        <th>производитель</th>
+        <th>фото</th>
+        <th>габариты</th>
+        <th>цена</th>
     </tr>
 
     <c:forEach items="${list}" var="item">
         <tr>
             <td>${item.id}</td>
-            <td><c:out value="${item.producerByProducerId.producerId}"/></td>
+            <td>${item.characteristicsByTypeId.typeName}</td>
+            <td><c:out value="${item.producerByProducerId.producerName}"/></td>
             <td><img src="${item.image}" class="img_wrap2"></td>
             <td><c:out value="${item.dimensions}"/></td>
             <td><c:out value="${item.characteristic1}"/></td>
-            <td><a href="add_to_bin?id=${item.id}" class="c">Добавить в корзину</a></td>
+            <td>
+                <a href="information_about_good?id=${item.id}" class="c">Подробнее о товаре</a><br>
+                <a href="add_to_bin?id=${item.id}" class="c">Добавить в корзину</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
